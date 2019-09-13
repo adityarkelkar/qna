@@ -29,9 +29,10 @@ public class UserController {
     }
 
     @PostMapping(value = "/user/add")
-    public void addUser(@RequestBody User user) {
+    public String addUser(@RequestBody User user) {
         String securePass = hash.getHash(user.getPassword());
         user.setPassword(securePass);
         userService.addUser(user);
+        return user.toString();
     }
 }

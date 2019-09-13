@@ -33,7 +33,17 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Question> questions = new HashSet<>();
 
-    public User() {}
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 
     public long getUserID() {
         return userID;
